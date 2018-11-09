@@ -633,7 +633,7 @@ Chaque traitement prend comme entrée la combinaison : entrée t + récurrence
 LSTM = Traitement séquentiel où chaque étape du traitement produit :
 - une sortie définitive qui sera destinée à alimenter la sortie finale du réseaux
 - une sortie mémoire qui sera ré-utilsée lors de l’étape ultérieure réalisant une boucle interne (voie récurrente)
-- voie supplémentaire (cary track) en complément de la voie récurrente,  mis à jour par la concaténation de trois flux :
+- une voie supplémentaire (cary track) en complément de la voie récurrente,  mise à jour par la concaténation de trois flux :
 .small[
   * deux flux de récurrence
 * vecteur d’entrée du traitement en cours.
