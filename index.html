@@ -179,7 +179,8 @@ Rechercher mots / expression dans les textes
 ]
 .right-column[
 .center[Méthodes]
-- Recherche exacte ordonnées +/- erreurs (fuzzy matching) → algorithme optimisé FST
+- Recherche exacte ordonnées +/- erreurs (fuzzy matching) → algorithme optimisé
+    * ex : Finite State Transducer (FST) in [Lucene/Solr Text tagger](https://github.com/OpenSextant/SolrTextTagger)
 - Recherche exacte non ordonnée
 - Calcul de scores sur la base des probabilités d'association mots/codes
 - Calcul de distance → vectorisation (cf) mais plutôt sur les textes eux-mêmes que sur définition
@@ -288,17 +289,14 @@ approximator?](https://www.quora.com/Is-a-single-layered-ReLu-network-still-a-un
 ]
 
 .center[
-$f(\mathbf{x}) = g(\mathbf{W}^T \mathbf{x} + b)$
-
-
-
-$ f(\mathbf{x}) =  \sum W \times g(z(x)) + b  $
+$f(\mathbf{x}) = g(W^T \mathbf{x} + b)$
 ]
+<br>
 
 .left-column[
 
 .center[
-<img src="images/RNN_1_input.png" style="width: 300px;" />
+<img src="images/RNN_1_input.png" style="width: 250px;" />
 ]
 
 ]
@@ -308,8 +306,10 @@ $ f(\mathbf{x}) =  \sum W \times g(z(x)) + b  $
 <img src="images/1D_function.png" style="width: 250px;" />
 ]
 ]
-
-
+<br>
+.center[
+$ f(\mathbf{x}) =  \sum \mathbf{W}^T_2 g(\mathbf{W}^T_1 \mathbf{x} + b_1) + b_2  $
+]
 ---
 
 ### Couche caché de Neurones artificiel
@@ -319,8 +319,8 @@ $ f(\mathbf{x}) =  \sum W \times g(z(x)) + b  $
 
 
 
-$ f(\mathbf{x}) =  \sum W \times g(z(x)) + b  $
-]
+$ f(\mathbf{x}) =  \sum \mathbf{W}^T_2 g(\mathbf{W}^T_1 \mathbf{x} + b_1) + b_2  $
+
 
 .left-column[
 
@@ -784,9 +784,9 @@ RNN + RI                    |                |
   * RI seuls très efficace (meilleurs résultats du challenge 2016) mais modification thésaurus CépiDC
       - Préselection sur les textes eux-mêmes
       - 1 seul code par entrée
-      - optimisation de l'algorithme de recheche (Solr FST) <br>EM van Mulligen [Erasmus @ Clef 2016](http://ceur-ws.org/Vol-1609/16090171.pdf)
-  * ML : RNN les plus parformants, architecture un peu plus complexe
-      - Meilleurs résultats en 2017<br> Z.Miftahutdinov  [KFUJ @ Clef 2017](https://github.com/dartrevan/CLEF-2017-train-scripts)
+      - Optimisation de l'algorithme de recheche [Lucene/Solr Text tagger](https://github.com/OpenSextant/SolrTextTagger) <br>E. van Mulligen [Erasmus @ Clef 2016](http://ceur-ws.org/Vol-1609/16090171.pdf)
+  * ML : RNN les plus parformants
+      - Architecture un peu plus complexe que celle utilisée ici avec meilleurs résultats en 2017 : Z. Miftahutdinov  [KFUJ @ Clef 2017](https://github.com/dartrevan/CLEF-2017-train-scripts)
 
 
 
@@ -797,15 +797,15 @@ RNN + RI                    |                |
   * Compte-rendus d’hospitalisation : Pré-Traitement +++
   * Examens complémentaires
       - Anatomo-pathologie : transcodage Adicap / CIM 10
-      - Biolgie
+      - Biologie cf RN
 
 - Recherche d'Information
   * Thésaurus hospitalier (Hector à l'APHP, ...) mais non validé
   * Performances probablement moins importantes dans ce contexte
 
-- RN
+- Réseaux de Neurones
   * Concaténation de modèles pour prise en compte textes plus longs
-  * Intégration d'une modélisation données de biologie ([JB Escudié 2018](https://arxiv.org/pdf/1803.09533.pdf))
+  * Intégration d'une modélisation avec les données de biologie <br>ex : J.B. Escudié [arxiv 2018](https://arxiv.org/pdf/1803.09533.pdf)
 
 ---
 ## Projets APHP
